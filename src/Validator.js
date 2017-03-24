@@ -13,17 +13,17 @@ class Validator extends Component {
   }
 
   handleEmail(event){
-    this.State({
+    this.setState({
       email: event.target.value
     })
   }
   handlePassword(event){
-    this.State({
+    this.setState({
       password: event.target.value
     })
   }
   handleConfirmPassword(event){
-    this.State({
+    this.setState({
       confirmPassword: event.target.value
     })
   }
@@ -33,19 +33,21 @@ class Validator extends Component {
   }
   handleValidity(event){
     if(this.state.password === this.state.confirmPassword){
-      this.state({valid: true})
+      this.setState({valid: true})
     }else{
-      this.state({valid: false})
+      this.setState({valid: false})
     }
   }
   render() {
+    let validity = this.state.valid ? "Passwords match" : "Passwords do not match"
     return (
       <div className="form">
         <h1>Sign Up</h1>
         <input onChange={(event) => this.handleEmail(event)} type="text" placeholder="email" />
         <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
-        <input onChange={(event) => onChange} type="password" placeholder="confirm password" />
+        <input onChange={(event) => this.handleConfirmPassword(event)} type="password" placeholder="confirm password" />
         <input type="submit" onClick={(event) => this.handleValidity(event)} value="Submit" />
+        <p>{validity}</p>
       </div>
     );
   }
