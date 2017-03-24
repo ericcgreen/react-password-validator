@@ -33,17 +33,12 @@ class Validator extends Component {
   }
   handleValidity(event){
     if(this.state.password === this.state.confirmPassword){
-
         alert("Sign up succesful")
-
     }else{
-
         alert("Passwords do not match")
       }
-
   }
   render() {
-
     return (
       <div className="form">
         <h1>Sign Up</h1>
@@ -51,7 +46,6 @@ class Validator extends Component {
         <input onChange={(event) => this.handlePassword(event)} type="password" placeholder="password" />
         <input onChange={(event) => this.handleConfirmPassword(event)} type="password" placeholder="confirm password" />
         <input type="submit" onClick={(event) => this.handleValidity(event)} value="Submit" />
-
       </div>
     );
   }
