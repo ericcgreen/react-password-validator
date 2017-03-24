@@ -32,11 +32,19 @@ class Validator extends Component {
     this.handleValidity()
   }
   handleValidity(event){
-    if(this.state.password === this.state.confirmPassword){
-        alert("Sign up succesful")
-    }else{
-        alert("Passwords do not match")
+    if(this.state.email.includes("@")){
+      if(this.state.email && this.state.password && this.state.confirmPassword){
+        if(this.state.password === this.state.confirmPassword){
+            alert("Sign up succesful")
+        } else {
+            alert("Passwords do not match")
+        }
+      } else {
+      alert("Fill out all fields")
       }
+    } else {
+      alert("Must be valid email")
+    }
   }
   render() {
     return (
